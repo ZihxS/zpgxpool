@@ -1,6 +1,6 @@
 # 🚀 zpgxpool — Lightweight pgx pool interface + testing mocks
 
-[![CI](https://github.com/ZihxS/zpgxpool/actions/workflows/ci.yml/badge.svg)](https://github.com/ZihxS/zpgxpool/actions/workflows/ci.yml) [![Go](https://img.shields.io/badge/go-1.24-blue.svg)](https://golang.org) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Go](https://img.shields.io/badge/go-1.24-blue.svg)](https://golang.org) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A compact helper library and mock utilities for working with PostgreSQL via [`pgx`](github.com/jackc/pgx/v5) in Go. Ideal for projects that need:
 - A small, test-friendly abstraction over `pgx` connection pool
