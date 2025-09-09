@@ -102,15 +102,6 @@ mockgen -destination=pgx_pool_mock.go -package=zpgxpool path/to/your/module PgxP
 
 ---
 
-## ✅ SEO & discovery tips (for repository settings)
-
-- Add GitHub topics: `pgx`, `postgres`, `golang`, `go`, `db`, `mock`, `testing`, `unit-tests`
-- Set repository description to: "zpgxpool — lightweight pgx pool interfaces + gomock-ready testing utilities for PostgreSQL in Go"
-- Pin this README and [`DOCUMENTATION.md`](DOCUMENTATION.md:1) for discoverability.
-- Add `examples/` as a top-level folder and list it in README for quick onboarding.
-
----
-
 ## 🤝 Contribution & Code of Conduct
 
 Contributions welcome — please open issues or pull requests. Follow repository coding and PR guidelines:
