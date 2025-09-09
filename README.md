@@ -63,6 +63,7 @@ mockPool.EXPECT().Query(gomock.Any(), "SELECT ...").Return(rows.ToPgxRows(), nil
 ```
 
 - Test transaction behavior with `MockTx`:
+```go
 mockTx := zpgxpool.NewMockTx(ctrl)
 mockPool.EXPECT().Begin(gomock.Any()).Return(mockTx, nil)
 mockTx.EXPECT().Exec(gomock.Any(), "INSERT ...", gomock.Any()).Return(pgconn.NewCommandTag("INSERT 0 1"), nil)
