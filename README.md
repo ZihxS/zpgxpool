@@ -34,7 +34,6 @@ go get github.com/zihxs/zpgxpool
 ```
 
 2. Use the `PgxPool` interface in your code:
-[`go`](pgx_pool.go:11)
 ```go
 var db zpgxpool.PgxPool = realPool // or injected mock in tests
 row := db.QueryRow(ctx, "SELECT id FROM users WHERE id = $1", 1)
@@ -48,10 +47,9 @@ See [`examples/README.md`](examples/README.md:1) for details.
 
 ---
 
-## 🧪 Unit testing patterns (quick)
+## 🧪 Unit testing patterns
 
 - Create mock controller:
-[`go`](examples/successful_query_test.go:14)
 ```go
 ctrl := gomock.NewController(t)
 defer ctrl.Finish()
@@ -59,15 +57,12 @@ mockPool := zpgxpool.NewMockPgxPool(ctrl)
 ```
 
 - Return mocked rows:
-[`go`](examples/successful_query_test.go:17)
 ```go
 rows := zpgxpool.NewRows([]string{"id","name"}).AddRow(1,"John")
 mockPool.EXPECT().Query(gomock.Any(), "SELECT ...").Return(rows.ToPgxRows(), nil)
 ```
 
 - Test transaction behavior with `MockTx`:
-[`go`](examples/successful_transaction_test.go:17)
-```go
 mockTx := zpgxpool.NewMockTx(ctrl)
 mockPool.EXPECT().Begin(gomock.Any()).Return(mockTx, nil)
 mockTx.EXPECT().Exec(gomock.Any(), "INSERT ...", gomock.Any()).Return(pgconn.NewCommandTag("INSERT 0 1"), nil)
@@ -125,14 +120,6 @@ Contributions welcome — please open issues or pull requests. Follow repository
 
 ---
 
-## 📜 License
-
-Add your license file (e.g., `LICENSE`) at repo root. Recommended: MIT / Apache-2.0 for maximum adoption.
-
----
-
-## 📣 Closing (call to action)
-
 If this project helped you speed up DB testing, please:
 - Star the repo ⭐
 - Share an example of how you use it
@@ -142,7 +129,6 @@ Thanks — and happy testing! 🎉
 
 ---
 
-## 🔎 Highlights
 - Keywords: pgx, postgres, golang, db pool, pgxpool, mocking, gomock, unit test, database testing, sql transactions.
 - Ideal for: backend services, microservices, Open Source libraries using PostgreSQL and Go.
 - Features: interface abstractions (`PgxPool`, `Tx`), mock generator output, utilities to build `pgx.Rows` and `pgx.Row` for tests, examples.
